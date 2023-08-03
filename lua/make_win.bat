@@ -67,11 +67,17 @@ copy /Y luac.exe ..\bin\luac.exe
 copy /Y lua54.dll ..\bin\lua54.dll
 
 cd ../lfs
-cl /O2 /W3 /c /DLUA_BUILD_AS_DLL l*.c /I"../include/"
+cl /O2 /W3  /wd"4996" /wd"4267" /c /DLUA_BUILD_AS_DLL l*.c /I"../include/"
 link /DLL /out:lfs.dll l*.obj ../lib/lua54.lib
 copy /Y lfs.dll ..\bin\lfs.dll
-cd ..
 
+cd ../lua-md5
+cl /O2 /W3 /c /DLUA_BUILD_AS_DLL md5.c md5lib.c compat-5.2.c  /I"../include/"
+link /DLL /out:md5.dll *.obj ../lib/lua54.lib
+copy /Y md5.dll ..\bin\md5.dll
+
+
+cd ..
 goto :eof
 
 :missing

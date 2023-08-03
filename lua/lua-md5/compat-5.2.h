@@ -12,4 +12,5 @@
 #define lua_rawlen lua_objlen
 #endif
 
-void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup);
+// void luaL_setfuncs (lua_State *L, const luaL_Reg *l, int nup);
+LUALIB_API void (luaL_setfuncs) (lua_State *L, const luaL_Reg *l, int nup);
