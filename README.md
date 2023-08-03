@@ -3,6 +3,8 @@
 ## 使用命令行批处理编译
 
 ### 编译lua
+处理lua.exe 编译之外 还有 lfs 和 md5 lua库的编译
+
 ```
 cd lua
 make_win.bat
